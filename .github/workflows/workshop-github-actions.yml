@@ -19,10 +19,13 @@ jobs:
         uses: npm install --save-dev @4tw/cypress-drag-drop
 
       - name: Run e2e:workshop
-        uses: npx cypress run --record --spec "cypress/e2e/workshop.cy.js"
+        uses: npx cypress run --spec "cypress/e2e/workshop.cy.js"
 
-      - name: publish video
+      - name: Install cypress-mochawesome-reporter
+        uses: npm install --save-dev cypress-mochawesome-reporter
+
+      - name: publish report
         uses: actions/upload-artifact@v4
         with:
-          path: ./cypress/videos/*.mp4
-          name: cypress-video
+          path: ./cypress/reports/html/.html
+          name: html-report
