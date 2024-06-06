@@ -1,0 +1,11 @@
+{
+  "script": {
+    "cy:open": "cypress open"
+  },
+  "dependencies": {
+    "cypress": "^13.11.0"
+  },
+  "devDependencies": {
+    "@4tw/cypress-drag-drop": "^2.2.5"
+  }
+}

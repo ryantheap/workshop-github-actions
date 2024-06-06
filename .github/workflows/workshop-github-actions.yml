@@ -11,3 +11,18 @@ jobs:
     steps:
       - name: Clone repository
         uses: actions/checkout@v4
+
+      - name: Install cypress
+        uses: npm install cypress
+
+      - name: Install cypress-drag-and-drop
+        uses: npm install --save-dev @4tw/cypress-drag-drop
+
+      - name: Run e2e:workshop
+        uses: npx cypress run --record --spec "cypress/e2e/workshop.cy.js"
+
+      - name: publish video
+          uses: actions/upload-artifact@v4
+          with:
+            path: ./cypress/videos/*.mp4
+            name: cypress-video
